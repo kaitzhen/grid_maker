@@ -4,7 +4,20 @@ let colorSelected;
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    
+    numRows=grid.rows.length;
+    
+    if(numRows == 0) {     //if table is empty, add first cell
+        let row = grid.insertRow();
+        let cell = row.insertCell();
+    }
+    else {
+        numCols=grid.rows[0].children.length;
+        let row = grid.insertRow();
+        for(let i = 0; i < numCols; i++) {
+            row.insertCell(i);
+        }
+    }
 }
 
 // Add a column
