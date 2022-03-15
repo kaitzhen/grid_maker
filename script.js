@@ -34,8 +34,7 @@ function addC() {
         for(let i = 0; i < rows.length; i++) {
          rows[i].insertCell();
         }
-        //console.log('num of cols');
-        //console.log(rows[0].children.length);
+        
     }
 
     
@@ -43,7 +42,10 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    numRows=grid.rows.length;
+    if(numRows != 0) {
+        grid.deleteRow(numRows-1);
+    }
 }
 
 // Remove a column
