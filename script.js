@@ -84,7 +84,10 @@ function selected(){
 
 // Fill all cells
 function fill(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    let cells = document.querySelectorAll('td');
+    for(let i = 0; i < cells.length; i++) {
+        cells[i].style.backgroundColor = `${colorSelected}`;
+    };
 }
 
 // Clear all cells
