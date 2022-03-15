@@ -10,12 +10,18 @@ function addR() {
     if(numRows == 0) {     //if table is empty, add first cell
         let row = grid.insertRow();
         let cell = row.insertCell();
+        cell.onclick = function() {
+            this.style.backgroundColor = `${colorSelected}`;
+        };
     }
     else {
         numCols=grid.rows[0].children.length;
         let row = grid.insertRow();
         for(let i = 0; i < numCols; i++) {
-            row.insertCell(i);
+            let cell = row.insertCell(i);
+            cell.onclick = function() {
+                this.style.backgroundColor = `${colorSelected}`;
+            };
         }
     }
 }
@@ -27,17 +33,20 @@ function addC() {
     if(numRows == 0) {     //if table is empty, add first cell
         let row = grid.insertRow();
         let cell = row.insertCell();
+        cell.onclick = function() {
+            this.style.backgroundColor = `${colorSelected}`;
+        };
     }
 
     else {
         let rows = grid.rows;
         for(let i = 0; i < rows.length; i++) {
-         rows[i].insertCell();
+           let cell = rows[i].insertCell();
+           cell.onclick = function() {
+              this.style.backgroundColor = `${colorSelected}`;
+           };
         }
-        
     }
-
-    
 }
 
 // Remove a row
@@ -64,14 +73,13 @@ function removeC() {
                 grid.deleteRow(i);
             }
         }
-
     }
 }
 
 // Sets global variable for selected color
 function selected(){
     colorSelected = document.getElementById("selectedColorId").value;
-    console.log(colorSelected);
+    //console.log(colorSelected);
 }
 
 // Fill all cells
