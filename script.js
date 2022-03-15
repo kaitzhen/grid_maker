@@ -92,7 +92,11 @@ function fill(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    let cells = document.querySelectorAll('td');
+    for(let i = 0; i < cells.length; i++) {
+        cells[i].style.removeProperty('background-color');
+    };
+    
 }
 
 // Fill all uncolored cells
