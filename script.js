@@ -22,7 +22,23 @@ function addR() {
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    numRows=grid.rows.length;
+    
+    if(numRows == 0) {     //if table is empty, add first cell
+        let row = grid.insertRow();
+        let cell = row.insertCell();
+    }
+
+    else {
+        let rows = grid.rows;
+        for(let i = 0; i < rows.length; i++) {
+         rows[i].insertCell();
+        }
+        //console.log('num of cols');
+        //console.log(rows[0].children.length);
+    }
+
+    
 }
 
 // Remove a row
