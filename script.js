@@ -50,7 +50,22 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    numRows=grid.rows.length;
+    if(numRows != 0) {
+        let rows = grid.rows;
+        for(let i = 0; i < rows.length; i++) {
+            let lastCell = rows[i].children.length-1;
+            rows[i].deleteCell(lastCell);
+        }
+        numCols = rows[0].children.length;
+        if(numCols == 0) { //deleted all columns --> empty table
+            numRows=grid.rows.length;
+            for(let i = numRows-1; i >=0; i--) {
+                grid.deleteRow(i);
+            }
+        }
+
+    }
 }
 
 // Sets global variable for selected color
